@@ -1,0 +1,65 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Moon, Sun, Download } from 'lucide-react';
+import { useTheme } from '../hooks/useTheme';
+
+export const Header: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
+    >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="font-bold text-xl text-gray-900 dark:text-white"
+          >
+            RC
+          </motion.div>
+          
+          <div className="hidden md:flex space-x-8">
+            {['about', 'skills', 'projects', 'experience', 'contact'].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 capitalize"
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
+            >
+              <Download size={16} />
+              <span className="hidden sm:inline">Resume</span>
+            </motion.button>
+          </div>
+        </div>
+      </nav>
+    </motion.header>
+  );
+};
