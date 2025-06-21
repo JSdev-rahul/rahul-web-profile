@@ -1,54 +1,30 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
+import { contactInfo, socialLinks } from "../data/contactInfo";
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
-
-  const contactInfo = [
-    {
-      Icon: Mail,
-      label: 'Email',
-      value: 'rahul.choudhary@example.com',
-      href: 'mailto:rahul.choudhary@example.com'
-    },
-    {
-      Icon: Phone,
-      label: 'Phone',
-      value: '+91 98765 43210',
-      href: 'tel:+919876543210'
-    },
-    {
-      Icon: MapPin,
-      label: 'Location',
-      value: 'India (Remote Available)',
-      href: '#'
-    }
-  ];
-
-  const socialLinks = [
-    { Icon: Github, href: '#', label: 'GitHub' },
-    { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { Icon: Twitter, href: '#', label: 'Twitter' }
-  ];
 
   return (
     <section id="contact" className="py-20 bg-white dark:bg-gray-900">
@@ -64,7 +40,9 @@ export const Contact: React.FC = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can bring your ideas to life with cutting-edge technology and intelligent automation.
+            Ready to collaborate on your next project? Let's discuss how we can
+            bring your ideas to life with cutting-edge technology and
+            intelligent automation.
           </p>
         </motion.div>
 
@@ -82,10 +60,11 @@ export const Contact: React.FC = () => {
                 Let's Connect
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                I'm always interested in discussing new opportunities, innovative projects, 
-                and ways to help businesses leverage technology for growth. Whether you're 
-                looking for a full-stack developer, AI automation expert, or technical consultant, 
-                I'd love to hear from you.
+                I'm always interested in discussing new opportunities,
+                innovative projects, and ways to help businesses leverage
+                technology for growth. Whether you're looking for a full-stack
+                developer, AI automation expert, or technical consultant, I'd
+                love to hear from you.
               </p>
             </div>
 
@@ -101,8 +80,12 @@ export const Contact: React.FC = () => {
                     <item.Icon className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                    <p className="text-gray-900 dark:text-white font-medium">{item.value}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {item.label}
+                    </p>
+                    <p className="text-gray-900 dark:text-white font-medium">
+                      {item.value}
+                    </p>
                   </div>
                 </motion.a>
               ))}
@@ -136,10 +119,16 @@ export const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6 bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -154,7 +143,10 @@ export const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -169,9 +161,12 @@ export const Contact: React.FC = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Subject
                 </label>
                 <input
@@ -185,9 +180,12 @@ export const Contact: React.FC = () => {
                   placeholder="Project Discussion"
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -201,7 +199,7 @@ export const Contact: React.FC = () => {
                   placeholder="Tell me about your project or how I can help you..."
                 />
               </div>
-              
+
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.02 }}

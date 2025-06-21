@@ -1,47 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Server, Globe, Database, Cloud, Bot, Code } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { skillCategories } from "../data/skills.ts";
 
 export const Skills: React.FC = () => {
-  const skillCategories = [
-    {
-      title: 'Backend Development',
-      Icon: Server,
-      skills: ['Node.js', 'NestJS', 'ExpressJS', 'Python'],
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      title: 'Frontend Development',
-      Icon: Globe,
-      skills: ['React.js', 'Next.js', 'TypeScript', 'Redux'],
-      color: 'from-teal-500 to-teal-600'
-    },
-    {
-      title: 'Databases',
-      Icon: Database,
-      skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Neo4j'],
-      color: 'from-green-500 to-green-600'
-    },
-    {
-      title: 'DevOps & Cloud',
-      Icon: Cloud,
-      skills: ['AWS', 'Heroku', 'Jenkins', 'GitHub Actions'],
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      title: 'AI & Automation',
-      Icon: Bot,
-      skills: ['n8n Workflows', 'TensorFlow', 'ML Systems', 'AI Agents'],
-      color: 'from-orange-500 to-orange-600'
-    },
-    {
-      title: 'APIs & Integration',
-      Icon: Code,
-      skills: ['REST APIs', 'GraphQL', 'WebSockets', 'Microservices'],
-      color: 'from-pink-500 to-pink-600'
-    }
-  ];
-
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,12 +17,13 @@ export const Skills: React.FC = () => {
             Technical Skills
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications and intelligent automation systems
+            A comprehensive toolkit for building modern, scalable applications
+            and intelligent automation systems
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
+          {skillCategories.map((category: any, index: number) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 30 }}
@@ -74,7 +36,9 @@ export const Skills: React.FC = () => {
               <div className={`h-2 bg-gradient-to-r ${category.color}`}></div>
               <div className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center mr-4`}>
+                  <div
+                    className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center mr-4`}
+                  >
                     <category.Icon className="text-white" size={24} />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
@@ -82,7 +46,7 @@ export const Skills: React.FC = () => {
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
+                  {category.skills.map((skill: string) => (
                     <span
                       key={skill}
                       className="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
@@ -107,12 +71,17 @@ export const Skills: React.FC = () => {
             Ready to Build Something Amazing?
           </h3>
           <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-            Let's collaborate on your next project and bring your ideas to life with cutting-edge technology and intelligent automation.
+            Let's collaborate on your next project and bring your ideas to life
+            with cutting-edge technology and intelligent automation.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200"
           >
             Get In Touch

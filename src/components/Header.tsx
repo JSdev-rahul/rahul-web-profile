@@ -1,14 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Moon, Sun, Download } from 'lucide-react';
-import { useTheme } from '../hooks/useTheme';
+import React from "react";
+import { motion } from "framer-motion";
+import { Moon, Sun, Download } from "lucide-react";
+import { useTheme } from "../hooks/useTheme";
+import { navItems } from "../data/navItems";
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -26,9 +27,9 @@ export const Header: React.FC = () => {
           >
             RC
           </motion.div>
-          
+
           <div className="hidden md:flex space-x-8">
-            {['about', 'skills', 'projects', 'experience', 'contact'].map((item) => (
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -46,9 +47,9 @@ export const Header: React.FC = () => {
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
             </motion.button>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

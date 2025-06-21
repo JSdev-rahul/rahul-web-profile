@@ -1,6 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Heart, Code } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Heart, Code } from "lucide-react";
+import { navItems } from "../data/navItems";
+import { specializations } from "../data/specializations";
 
 export const Footer: React.FC = () => {
   return (
@@ -15,38 +17,40 @@ export const Footer: React.FC = () => {
               Rahul Choudhary
             </motion.div>
             <p className="text-gray-400 leading-relaxed">
-              Full Stack + N8N AI Agent Developer crafting scalable solutions 
+              Full Stack + N8N AI Agent Developer crafting scalable solutions
               and intelligent automation workflows.
             </p>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              {['About', 'Skills', 'Projects', 'Experience', 'Contact'].map((link) => (
+              {navItems.map((link) => (
                 <button
                   key={link}
-                  onClick={() => document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                  className="block text-gray-400 hover:text-white transition-colors duration-200"
+                  onClick={() =>
+                    document
+                      .getElementById(link.toLowerCase())
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="block text-gray-400 hover:text-white transition-colors duration-200 capitalize"
                 >
                   {link}
                 </button>
               ))}
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Specializations</h3>
-            <div className="space-y-2 text-gray-400">
-              <p>• Full Stack Development</p>
-              <p>• N8N Automation Workflows</p>
-              <p>• AI Agent Development</p>
-              <p>• System Architecture</p>
-              <p>• DevOps & Cloud Solutions</p>
-            </div>
+            <ul className="space-y-2 text-gray-400 list-disc list-inside">
+              {specializations.map((item, index) => (
+                <li key={index}>{item.title}</li>
+              ))}
+            </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 text-gray-400 mb-4 md:mb-0">
