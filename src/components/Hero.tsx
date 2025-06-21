@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import React from 'react';
+import { profilePic } from '../assets';
 
 export const Hero: React.FC = () => {
   const scrollToAbout = () => {
@@ -22,7 +23,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-32 h-32 mt-4 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center text-white text-4xl font-bold shadow-lg"
           >
-            RC
+            <img src={profilePic} className="rounded-full w-full h-full" />
           </motion.div>
 
           <motion.div

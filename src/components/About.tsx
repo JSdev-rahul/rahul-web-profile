@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import CountUp from 'react-countup';
 import { highlights } from '../data/highlights';
 
 export const About: React.FC = () => {
@@ -81,25 +82,26 @@ export const About: React.FC = () => {
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                  5+
+                  {/* 5+ */}
+                  <CountUp end={5} duration={5} />+
                 </div>
                 <div className="text-gray-600 dark:text-gray-300">Years Experience</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">
-                  10+
+                  <CountUp end={10} duration={5} />+
                 </div>
                 <div className="text-gray-600 dark:text-gray-300">Projects Completed</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-2">
-                  7
+                  <CountUp end={7} duration={5} />
                 </div>
                 <div className="text-gray-600 dark:text-gray-300">Major Products</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
-                  50+
+                  <CountUp end={50} duration={5} />+
                 </div>
                 <div className="text-gray-600 dark:text-gray-300">Automation Workflows</div>
               </div>
