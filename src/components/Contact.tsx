@@ -1,19 +1,64 @@
+import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { Loader, Send } from 'lucide-react';
 import React, { useState } from 'react';
 import { contactInfo, socialLinks } from '../data/contactInfo';
+import useToast from '../hooks/useToast';
 
 export const Contact: React.FC = () => {
+  const { showSuccess, showError } = useToast();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: 'Rahul',
+    email: 'rahul@gmail.com',
+    subject: 'Opportunity for Collaboration with Our Development Team',
+    message: `Hi Rahul,
+
+I came across your portfolio and was truly impressed with your skill set and project work. 
+We’re currently looking for a full-stack developer with strong experience in React, Node.js, and automation.
+
+Would you be open to discussing a potential collaboration or freelance opportunity with our team?
+
+Looking forward to your response.
+
+Best regards,  
+[HR Name]  
+[Company Name]`,
+    createdAt: new Date().toLocaleString(),
   });
 
   const handleSubmit = (e: React.FormEvent) => {
+    setIsLoading(true);
     e.preventDefault();
-    // Handle form submission here
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      createdAt: formData.createdAt, // Optional: Add a timestamp to the email
+    };
+
+    emailjs
+      .send(
+        'service_rkb27ci', // ✅ Your EmailJS service ID
+        'contact_rahul', // ✅ Replace with your EmailJS template ID
+        templateParams, // ✅ Your custom message object
+        'ak9H0LOC_DcPDeAg4' // ✅ Your EmailJS public key
+      )
+      .then(() => {
+        showSuccess('Email sent successfully!');
+        console.log('✅ Email sent successfully!');
+      })
+      .catch(error => {
+        showError('❌ Failed to send email. Please try again later.');
+        console.error('❌ Failed to send email:', error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+
     console.log('Form submitted:', formData);
   };
 
@@ -193,13 +238,23 @@ export const Contact: React.FC = () => {
               </div>
 
               <motion.button
+                disabled={isLoading}
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center space-x-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
+                className="w-full disabled:bg-slate-500 disabled:cursor-not-allowed flex items-center justify-center space-x-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-200"
               >
-                <Send size={18} />
-                <span>Send Message</span>
+                {isLoading ? (
+                  <>
+                    {' '}
+                    <Loader />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} /> <span>Send Message</span>
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>

@@ -4,10 +4,12 @@ import React from 'react';
 import { navItems } from '../data/navItems';
 import { useTheme } from '../hooks/useTheme';
 
+import useToast from '../hooks/useToast';
 import resumePdf from '../public/rahul_resume.pdf'; // adjust the path as needed
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { showSuccess } = useToast();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -35,6 +37,7 @@ export const Header: React.FC = () => {
     link.href = resumePdf; // path relative to public
     link.download = 'rahul_resume.pdf'; // ✅ correct filename
     link.click();
+    showSuccess('Resume downloaded successfully!');
   };
 
   return (
