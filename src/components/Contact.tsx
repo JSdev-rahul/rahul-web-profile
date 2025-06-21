@@ -28,6 +28,10 @@ Best regards,
     createdAt: new Date().toLocaleString(),
   });
 
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
   const handleSubmit = (e: React.FormEvent) => {
     setIsLoading(true);
     e.preventDefault();
@@ -41,12 +45,7 @@ Best regards,
     };
 
     emailjs
-      .send(
-        'service_rkb27ci', // ✅ Your EmailJS service ID
-        'contact_rahul', // ✅ Replace with your EmailJS template ID
-        templateParams, // ✅ Your custom message object
-        'ak9H0LOC_DcPDeAg4' // ✅ Your EmailJS public key
-      )
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then(() => {
         showSuccess('Email sent successfully!');
         console.log('✅ Email sent successfully!');
