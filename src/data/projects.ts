@@ -1,4 +1,15 @@
-import { Building, CreditCard, LucideIcon, MessageSquare } from 'lucide-react';
+import {
+  Activity,
+  Building,
+  Camera,
+  CarFront,
+  CreditCard,
+  LucideIcon,
+  MessageSquare,
+  Smartphone,
+  UserCheck,
+  UtensilsCrossed,
+} from 'lucide-react';
 
 export interface iProject {
   title: string;
@@ -12,7 +23,6 @@ export interface iProject {
   demoUrl: string;
   githubUrl: string;
 }
-[];
 
 export const projects: iProject[] = [
   {
@@ -65,6 +75,110 @@ export const projects: iProject[] = [
       'Secure payment processing',
       'Multi-platform integration',
       'Real-time transaction monitoring',
+    ],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'Happy Hour Restaurant (HHR)',
+    subtitle: 'Table Booking & Food Ordering System',
+    description:
+      'Built a feature-rich platform for online table reservations and food ordering, streamlining restaurant operations and user experience.',
+    icon: UtensilsCrossed,
+    image:
+      'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React.js', 'Redux', 'Django', 'PostgreSQL'],
+    role: 'Full Stack Developer',
+    highlights: [
+      'Table booking system',
+      'Order tracking & user authentication',
+      'Responsive UI with Redux integration',
+    ],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'Snippit CRM',
+    subtitle: 'Web & Mobile CRM App',
+    description:
+      'Streamlined customer relationship workflows with a powerful web and mobile application stack, optimized for real-time user activity and lead management.',
+    icon: Smartphone,
+    image:
+      'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React', 'React Native', 'TypeScript', 'Node.js', 'Next.js', 'AWS S3', 'OAuth2'],
+    role: 'Full Stack Developer',
+    highlights: [
+      'Cross-platform CRM features',
+      'Secure authentication with OAuth2',
+      'Cloud storage integration',
+    ],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'Awak',
+    subtitle: 'Dialysis Tech Enhancement',
+    description:
+      'Improved patient care for kidney dialysis through a modern, efficient interface and scalable backend services.',
+    icon: Activity,
+    image:
+      'https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React.js', 'TypeScript', 'Material UI', 'Node.js', 'Express'],
+    role: 'Frontend Engineer',
+    highlights: [
+      'Modern patient UI',
+      'TypeScript codebase',
+      'Node.js API for medical device integration',
+    ],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'Mas-Max',
+    subtitle: 'Car Service Web & Mobile App',
+    description:
+      'Developed a unified automotive service application with a strong focus on user experience, team collaboration, and full deployment workflows.',
+    icon: CarFront,
+    image:
+      'https://images.pexels.com/photos/448045/pexels-photo-448045.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React.js', 'Redux Toolkit', 'Node.js', 'Next.js', 'Material UI'],
+    role: 'Tech Lead & Full Stack Developer',
+    highlights: [
+      'Car service ecosystem',
+      'Led frontend and backend teams',
+      'Production deployment and QA management',
+    ],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'HRMS',
+    subtitle: 'Human Resource Management System',
+    description:
+      'Built an in-house HRMS solution to streamline employee management, leave tracking, and internal operations.',
+    icon: UserCheck,
+    image:
+      'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'TypeORM', 'Postgres', 'Firebase'],
+    role: 'Full Stack Developer',
+    highlights: ['Custom HR modules', 'Firebase-based backend', 'Secure login and API management'],
+    demoUrl: '#',
+    githubUrl: '#',
+  },
+  {
+    title: 'Genesis.ai',
+    subtitle: 'AI-based Image Recognition Platform',
+    description:
+      'Created an advanced AI/ML-powered tool for image analysis with robust security and scalable architecture.',
+    icon: Camera,
+    image:
+      'https://images.pexels.com/photos/11035371/pexels-photo-11035371.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['React.js', 'Typescript', 'Tailwind CSS', 'API', 'AWS', 'Microsoft SSO'],
+    role: 'Lead Frontend Developer',
+    highlights: [
+      'AI-powered image recognition',
+      'SSO with enterprise providers',
+      'Frontend architecture leadership',
     ],
     demoUrl: '#',
     githubUrl: '#',
