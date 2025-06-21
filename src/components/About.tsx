@@ -126,6 +126,24 @@ export const About: React.FC = () => {
             </div>
           </div>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-white dark:bg-gray-900 rounded-2xl p-8 md:p-12 border border-gray-200 dark:border-gray-700 shadow-sm"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            🎓 Education
+          </h3>
+          <div className="text-center">
+            <p className="text-lg font-semibold text-gray-800 dark:text-white">
+              Bachelor of Technology in Computer Science Engineering
+            </p>
+            <p className="text-gray-600 dark:text-gray-300">RGPV University, Bhopal</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400">04/2017 – 01/2021</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
