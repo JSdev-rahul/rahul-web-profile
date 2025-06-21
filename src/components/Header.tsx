@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { Moon, Sun, Download } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
 import { navItems } from "../data/navItems";
+import { saveAs } from "file-saver";
+
+import resumePdf from "../public/rahul_resume.pdf"; // adjust the path as needed
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -10,6 +13,29 @@ export const Header: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Uncomment the following code if you want to use fetch and saveAs for downloading
+  // Note: This method requires the PDF to be hosted on a server that allows CORS.
+  // If the PDF is in the public folder, you can directly link to it as shown below.
+  // If you want to use the fetch method, make sure to install file-saver package
+
+  // const handleDownload = async () => {
+  //   try {
+  //     const response = await fetch(resumePdf); // Replace with your PDF URL
+  //     const blob = await response.blob();
+  //     saveAs(blob, "rahul_resume.pdf"); // Replace with desired filename
+  //   } catch (error) {
+  //     console.error("Error downloading PDF:", error);
+  //   }
+  // };
+
+  const handleDownload = () => {
+    console.log("click");
+    const link = document.createElement("a");
+    link.href = resumePdf; // path relative to public
+    link.download = "rahul_resume.pdf"; // ✅ correct filename
+    link.click();
   };
 
   return (
@@ -51,6 +77,7 @@ export const Header: React.FC = () => {
             </motion.button>
 
             <motion.button
+              onClick={handleDownload}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200"
