@@ -1,25 +1,23 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Send } from "lucide-react";
-import { contactInfo, socialLinks } from "../data/contactInfo";
+import { motion } from 'framer-motion';
+import { Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { contactInfo, socialLinks } from '../data/contactInfo';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log("Form submitted:", formData);
+    console.log('Form submitted:', formData);
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -40,9 +38,8 @@ export const Contact: React.FC = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how we can
-            bring your ideas to life with cutting-edge technology and
-            intelligent automation.
+            Ready to collaborate on your next project? Let's discuss how we can bring your ideas to
+            life with cutting-edge technology and intelligent automation.
           </p>
         </motion.div>
 
@@ -60,16 +57,15 @@ export const Contact: React.FC = () => {
                 Let's Connect
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                I'm always interested in discussing new opportunities,
-                innovative projects, and ways to help businesses leverage
-                technology for growth. Whether you're looking for a full-stack
-                developer, AI automation expert, or technical consultant, I'd
-                love to hear from you.
+                I'm always interested in discussing new opportunities, innovative projects, and ways
+                to help businesses leverage technology for growth. Whether you're looking for a
+                full-stack developer, AI automation expert, or technical consultant, I'd love to
+                hear from you.
               </p>
             </div>
 
             <div className="space-y-6">
-              {contactInfo.map((item) => (
+              {contactInfo.map(item => (
                 <motion.a
                   key={item.label}
                   href={item.href}
@@ -80,12 +76,8 @@ export const Contact: React.FC = () => {
                     <item.Icon className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {item.label}
-                    </p>
-                    <p className="text-gray-900 dark:text-white font-medium">
-                      {item.value}
-                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                    <p className="text-gray-900 dark:text-white font-medium">{item.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -96,7 +88,7 @@ export const Contact: React.FC = () => {
                 Follow Me
               </h4>
               <div className="flex space-x-4">
-                {socialLinks.map((social) => (
+                {socialLinks.map(social => (
                   <motion.a
                     key={social.label}
                     href={social.href}

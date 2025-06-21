@@ -1,10 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import React from 'react';
 
 export const Hero: React.FC = () => {
   const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -32,22 +32,16 @@ export const Hero: React.FC = () => {
             className="space-y-4"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white">
-              Rahul{" "}
-              <span className="text-blue-600 dark:text-blue-400">
-                Choudhary
-              </span>
+              Rahul <span className="text-blue-600 dark:text-blue-400">Choudhary</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
               Full Stack + N8N AI Agent Developer
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Crafting scalable backend systems and intelligent automation
-              workflows with{" "}
-              <span className="font-semibold text-blue-600 dark:text-blue-400">
-                5+ years
-              </span>{" "}
-              of experience. Specializing in building AI-powered applications
-              that transform business processes.
+              Crafting scalable backend systems and intelligent automation workflows with{' '}
+              <span className="font-semibold text-blue-600 dark:text-blue-400">5+ years</span> of
+              experience. Specializing in building AI-powered applications that transform business
+              processes.
             </p>
           </motion.div>
 
@@ -58,9 +52,9 @@ export const Hero: React.FC = () => {
             className="flex justify-center space-x-6"
           >
             {[
-              { Icon: Github, href: "#", label: "GitHub" },
-              { Icon: Linkedin, href: "#", label: "LinkedIn" },
-              { Icon: Mail, href: "mailto:rahul@example.com", label: "Email" },
+              { Icon: Github, href: '#', label: 'GitHub' },
+              { Icon: Linkedin, href: '#', label: 'LinkedIn' },
+              { Icon: Mail, href: 'mailto:rahul@example.com', label: 'Email' },
             ].map(({ Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -83,10 +77,7 @@ export const Hero: React.FC = () => {
             className="inline-flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 mt-16"
           >
             <span>Learn more about me</span>
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
+            <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
               <ArrowDown size={20} />
             </motion.div>
           </motion.button>

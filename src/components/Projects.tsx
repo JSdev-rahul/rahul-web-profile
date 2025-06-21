@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { projects } from "../data/projects";
-import { ExternalLink, Github } from "lucide-react";
+import { motion } from 'framer-motion';
+import { ExternalLink, Github } from 'lucide-react';
+import React from 'react';
+import { projects } from '../data/projects';
 
 export const Projects: React.FC = () => {
   return (
@@ -18,9 +18,8 @@ export const Projects: React.FC = () => {
             Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Showcasing enterprise-level applications and innovative solutions
-            that demonstrate my expertise in full-stack development and system
-            architecture
+            Showcasing enterprise-level applications and innovative solutions that demonstrate my
+            expertise in full-stack development and system architecture
           </p>
         </motion.div>
 
@@ -33,7 +32,7 @@ export const Projects: React.FC = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               className={`flex flex-col ${
-                index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'
               } gap-12 items-center`}
             >
               <div className="flex-1">
@@ -73,7 +72,7 @@ export const Projects: React.FC = () => {
                     Key Highlights
                   </h4>
                   <ul className="space-y-2">
-                    {project.highlights.map((highlight) => (
+                    {project.highlights.map(highlight => (
                       <li
                         key={highlight}
                         className="flex items-center text-gray-600 dark:text-gray-300"
@@ -90,7 +89,7 @@ export const Projects: React.FC = () => {
                     Technologies Used
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
+                    {project.technologies.map(tech => (
                       <span
                         key={tech}
                         className="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full"

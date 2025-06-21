@@ -1,18 +1,17 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Moon, Sun, Download } from "lucide-react";
-import { useTheme } from "../hooks/useTheme";
-import { navItems } from "../data/navItems";
-import { saveAs } from "file-saver";
+import { motion } from 'framer-motion';
+import { Download, Moon, Sun } from 'lucide-react';
+import React from 'react';
+import { navItems } from '../data/navItems';
+import { useTheme } from '../hooks/useTheme';
 
-import resumePdf from "../public/rahul_resume.pdf"; // adjust the path as needed
+import resumePdf from '../public/rahul_resume.pdf'; // adjust the path as needed
 
 export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
+    element?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // Uncomment the following code if you want to use fetch and saveAs for downloading
@@ -31,10 +30,10 @@ export const Header: React.FC = () => {
   // };
 
   const handleDownload = () => {
-    console.log("click");
-    const link = document.createElement("a");
+    console.log('click');
+    const link = document.createElement('a');
     link.href = resumePdf; // path relative to public
-    link.download = "rahul_resume.pdf"; // ✅ correct filename
+    link.download = 'rahul_resume.pdf'; // ✅ correct filename
     link.click();
   };
 
@@ -55,7 +54,7 @@ export const Header: React.FC = () => {
           </motion.div>
 
           <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -73,7 +72,7 @@ export const Header: React.FC = () => {
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
             >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </motion.button>
 
             <motion.button
