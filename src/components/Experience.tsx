@@ -1,7 +1,7 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Award } from "lucide-react";
-import { experiences } from "../data/experiences";
+import { motion } from 'framer-motion';
+import { Award, Calendar, MapPin } from 'lucide-react';
+import React from 'react';
+import { experiences } from '../data/experiences';
 
 export const Experience: React.FC = () => {
   return (
@@ -18,8 +18,8 @@ export const Experience: React.FC = () => {
             Professional Experience
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A journey of continuous learning and impactful contributions across
-            diverse projects and technologies
+            A journey of continuous learning and impactful contributions across diverse projects and
+            technologies
           </p>
         </motion.div>
 
@@ -36,7 +36,7 @@ export const Experience: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 className={`relative flex items-center ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 }`}
               >
                 {/* Timeline dot */}
@@ -44,7 +44,7 @@ export const Experience: React.FC = () => {
 
                 <div
                   className={`w-full md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-12" : "md:pl-12"
+                    index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'
                   } ml-12 md:ml-0`}
                 >
                   <motion.div
@@ -54,9 +54,7 @@ export const Experience: React.FC = () => {
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-2 text-blue-600 dark:text-blue-400">
                         <Calendar size={16} />
-                        <span className="text-sm font-medium">
-                          {exp.period}
-                        </span>
+                        <span className="text-sm font-medium">{exp.period}</span>
                         <span className="text-xs bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded-full">
                           {exp.duration}
                         </span>
@@ -87,17 +85,15 @@ export const Experience: React.FC = () => {
                         Key Achievements
                       </h5>
                       <ul className="space-y-2">
-                        {exp.achievements.map(
-                          (achievement, achievementIndex) => (
-                            <li
-                              key={achievementIndex}
-                              className="flex items-start text-gray-600 dark:text-gray-300"
-                            >
-                              <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                              <span className="text-sm">{achievement}</span>
-                            </li>
-                          )
-                        )}
+                        {exp.achievements.map((achievement, achievementIndex) => (
+                          <li
+                            key={achievementIndex}
+                            className="flex items-start text-gray-600 dark:text-gray-300"
+                          >
+                            <div className="w-2 h-2 bg-teal-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                            <span className="text-sm">{achievement}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
@@ -106,7 +102,7 @@ export const Experience: React.FC = () => {
                         Technologies
                       </h5>
                       <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech) => (
+                        {exp.technologies.map(tech => (
                           <span
                             key={tech}
                             className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md"

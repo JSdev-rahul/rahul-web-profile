@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Heart, Code } from "lucide-react";
-import { navItems } from "../data/navItems";
-import { specializations } from "../data/specializations";
+import { motion } from 'framer-motion';
+import { Code, Heart } from 'lucide-react';
+import React from 'react';
+import { navItems } from '../data/navItems';
+import { specializations } from '../data/specializations';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,28 +10,25 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold mb-4"
-            >
+            <motion.div whileHover={{ scale: 1.05 }} className="text-2xl font-bold mb-4">
               Rahul Choudhary
             </motion.div>
             <p className="text-gray-400 leading-relaxed">
-              Full Stack + N8N AI Agent Developer crafting scalable solutions
-              and intelligent automation workflows.
+              Full Stack + N8N AI Agent Developer crafting scalable solutions and intelligent
+              automation workflows.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              {navItems.map((link) => (
+              {navItems.map(link => (
                 <button
                   key={link}
                   onClick={() =>
                     document
                       .getElementById(link.toLowerCase())
-                      ?.scrollIntoView({ behavior: "smooth" })
+                      ?.scrollIntoView({ behavior: 'smooth' })
                   }
                   className="block text-gray-400 hover:text-white transition-colors duration-200 capitalize"
                 >
@@ -60,9 +57,7 @@ export const Footer: React.FC = () => {
               <Code className="text-blue-500" size={16} />
               <span>by Rahul Choudhary</span>
             </div>
-            <p className="text-gray-500 text-sm">
-              © 2025 Rahul Choudhary. All rights reserved.
-            </p>
+            <p className="text-gray-500 text-sm">© 2025 Rahul Choudhary. All rights reserved.</p>
           </div>
         </div>
       </div>
