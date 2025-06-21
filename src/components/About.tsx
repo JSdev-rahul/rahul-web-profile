@@ -48,7 +48,25 @@ export const About: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-gray-800 dark:to-gray-700 p-6 md:p-8 rounded-2xl shadow-lg text-center"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-yellow-700 dark:text-yellow-400 mb-4">
+            ⭐ Star Performer of the Year (2022–2023)
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            Awarded by{' '}
+            <span className="font-semibold text-gray-900 dark:text-white">
+              Santophy Infotech Pvt. Ltd.
+            </span>{' '}
+            for exceptional contribution in delivering full-stack projects, leading automation
+            workflows with n8n, and consistently exceeding performance expectations.
+          </p>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
