@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import { highlights } from '../data/highlights';
+
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-900">
